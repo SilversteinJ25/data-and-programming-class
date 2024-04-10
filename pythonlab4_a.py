@@ -50,7 +50,6 @@ df
 
 #4. Display only the values for Canada in 2015 and 2016.
 
-df.iloc[[4,5],[1,4]]
 df.loc[[2015,2016],["gdp_canada","unemp_canada"]]
 
 #5. Create a new variable that is a subset of the main data showing
@@ -65,11 +64,13 @@ print(df_mexico_2014on)
 #   the new values will be NaN for the first year.
 
 
+df['gdp_delta_usa'] = df['gdp_usa'].pct_change(periods=1)*100
+df['gdp_delta_canada'] = df['gdp_canada'].pct_change(periods=1)*100
+df['gdp_delta_mexico'] = df['gdp_mexico'].pct_change(periods=1)*100
+
+
+
 df
-
-
-
-
 
 
 
