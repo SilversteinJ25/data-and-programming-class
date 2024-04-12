@@ -6,7 +6,7 @@ Created on Thu Apr 11 09:31:25 2024
 @author: justinesilverstein
 """
 
-#NAMES
+#Justine S
 
 import pandas as pd
 import numpy
@@ -26,17 +26,28 @@ flowers=pd.read_csv(path)
 #   do this using groupby.
 
 # There are three kinds of flowers, called setosa, versicolor, and virginica. 
+pd.value_counts(flowers.species)
 
-setosa = flowers.iloc[0:50]
-versicolor = flowers.iloc[51:101]
-virginica = flowers.iloc[101:]
+print(flowers.iloc[:,0:4].median())
+print(flowers.iloc[:,0:4].mean())
+print(flowers.iloc[:,0:4].std())
+
+
 
 
 #2. Locate the max value across all four measures.  Use loc to display
 #   just the rows that contain those values.
 
+flowers.loc[flowers['sepal_length']==flowers['sepal_length'].max()]
+flowers.loc[flowers['sepal_width']==flowers['sepal_width'].max()]
+flowers.loc[flowers['petal_length']==flowers['petal_length'].max()]
+flowers.loc[flowers['petal_width']==flowers['petal_width'].max()]
+
 
 #3. How many of observations for each species of iris is in the data?
+pd.value_counts(flowers.species)
+
+#There are 50 observations for each species of iris in the data.
 
 
 #4. Using one line of code, divide each value by the mean for that measure,
@@ -56,3 +67,22 @@ virginica = flowers.iloc[101:]
 #   SettingWithCopyWarning message?  Modify your copying to do away with the 
 #   warning.  Hint: You can create this with apply, or with map if you also
 #   create a global variable holding the mean.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
