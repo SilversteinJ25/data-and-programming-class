@@ -18,7 +18,6 @@ data = {'gdp_usa':[15542, 16197, 16785, 17527, 18238, 18745, 19543],
         'unemp_mexico':[7.3, 7, 6.9, 6.6, 6.6, 6.8, 6.1]}
 
 years = [2011, 2012, 2013, 2014, 2015, 2016, 2017]
-
 df = pd.DataFrame(data, index=years)
 df.index = [years]
 df
@@ -34,7 +33,6 @@ df.loc[2013:2014]
 
 df.iloc[3,3]
 df.loc[2014,"unemp_usa"] = 6.2
-df.loc[2014,"unemp_usa"]
 
 #3. Calculate two new columns named 'unemp_mean_na' and 'gdp_sum_na'
 #   that are equal to the mean and sum of the respective columns for
@@ -63,13 +61,9 @@ print(df_mexico_2014on)
 #   Hint: you'll need to look up a new Series method for this. All 
 #   the new values will be NaN for the first year.
 
-
 df['gdp_delta_usa'] = df['gdp_usa'].pct_change(periods=1)*100
 df['gdp_delta_canada'] = df['gdp_canada'].pct_change(periods=1)*100
 df['gdp_delta_mexico'] = df['gdp_mexico'].pct_change(periods=1)*100
-
-
-
 df
 
 
