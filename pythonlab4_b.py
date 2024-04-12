@@ -63,10 +63,19 @@ pd.value_counts(flowers.species)
 #   a zscore?  How would you make this a zscore instead?  What's the problem
 #   with doing this without accounting for the values in the species column?
 
+setosa = flowers.loc[flowers['species']=='virginica',:]
+print(virginica.iloc[:,0:4].mean())
+
+
+df_zscore = (df - df.mean())/df.std()
+
 
 #5. Create a new column named "petal_area" which is equal to the length
 #   times the width.  Note that this isn't really the area of the petal, since
 #   petals presumably aren't rectangles.
+
+flowers['petal_area']=flowers['petal_length']*flowers['petal_width']
+
 
 
 #6. Subset the data to a new variable that is a dataframe with only virginica 
