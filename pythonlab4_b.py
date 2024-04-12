@@ -28,11 +28,19 @@ flowers=pd.read_csv(path)
 # There are three kinds of flowers, called setosa, versicolor, and virginica. 
 pd.value_counts(flowers.species)
 
+
 print(flowers.iloc[:,0:4].median())
 print(flowers.iloc[:,0:4].mean())
 print(flowers.iloc[:,0:4].std())
 
+setosa = flowers.loc[flowers['species']=='setosa',:]
+print(setosa.iloc[:,0:4].mean())
 
+setosa = flowers.loc[flowers['species']=='versicolor',:]
+print(versicolor.iloc[:,0:4].mean())
+
+setosa = flowers.loc[flowers['species']=='virginica',:]
+print(virginica.iloc[:,0:4].mean())
 
 
 #2. Locate the max value across all four measures.  Use loc to display
