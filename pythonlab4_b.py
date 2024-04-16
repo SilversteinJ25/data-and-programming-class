@@ -75,8 +75,7 @@ pd.value_counts(flowers.species)
 #different averages overall. 
 
 for column_name in flowers.columns[0:4]:
-    flowers[column_name+'notscore']=flowers[column_name]/ \
-        flowers[column_name].mean()    
+    flowers[column_name+'notscore']=flowers[column_name]/flowers[column_name].mean()    
 
 
 #5. Create a new column named "petal_area" which is equal to the length
