@@ -47,7 +47,6 @@ assert(all(df['_merge']=='both'), 'Nope!')
 df=df.drop('_merge',axis=1)
 df
 
-
 #2. You had to do some merging in part 1. If you did not already, go back and use
 #some assert statements to verify that the dataframes did what you expected.
 
@@ -59,16 +58,8 @@ df
 #3. Is the dataframe from part 1 in long or wide format? Write code to convert it
 #into the other.
 
-#The data frame from part 1 is in long format
+#The data frame from part 1 is in long format, below turns it to wide format
 
 df.pivot(index='date', columns=['place'], values=['value1','value2'])
-
-df.pivot(index='date', columns='place')
-
-
-
-
-
-
-
-
+df=df.pivot(index='date', columns='place')
+df
