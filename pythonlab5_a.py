@@ -43,17 +43,13 @@ df4['date']=pd.to_datetime(df4['date'])
 df2['date']=pd.to_datetime(df2['date'])
 
 df=df4.merge(df2, how='outer',on=['date','place'],indicator=True)
-assert(all(df['_merge']=='both'), 'Nope!')
+assert(all(df['_merge']=='both')), 'Nope!'
 df=df.drop('_merge',axis=1)
 df
 
 #2. You had to do some merging in part 1. If you did not already, go back and use
 #some assert statements to verify that the dataframes did what you expected.
 
-df=df4.merge(df2, how='outer',on=['date','place'],indicator=True)
-assert(all(df['_merge']=='both'), 'Nope!')
-df=df.drop('_merge',axis=1)
-df
 
 #3. Is the dataframe from part 1 in long or wide format? Write code to convert it
 #into the other.
@@ -62,4 +58,3 @@ df
 
 df.pivot(index='date', columns=['place'], values=['value1','value2'])
 df=df.pivot(index='date', columns='place')
-df
