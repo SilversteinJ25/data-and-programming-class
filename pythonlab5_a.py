@@ -42,7 +42,7 @@ df2=df2.melt(id_vars='date',value_name='value2', var_name='place')
 df4['date']=pd.to_datetime(df4['date'])
 df2['date']=pd.to_datetime(df2['date'])
 
-df=df4.merge(df2, how='outer',on=['date','place'],indicator=True)
+c
 assert(all(df['_merge']=='both')), 'Nope!'
 df=df.drop('_merge',axis=1)
 df
