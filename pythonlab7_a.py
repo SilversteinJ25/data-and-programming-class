@@ -23,6 +23,7 @@ df = pd.read_csv(url_to_csv)
 df.describe()
 df.columns
 
+df['price'].mean()
 
 
 # 2) Run a regression of price (y) on carat (x), including an 
@@ -44,14 +45,14 @@ m, b = np.polyfit(x, y, deg=1)
 result_np = np.poly1d((m,b))
 print(result_np)
 
-
+#With numpy, the intercept term is -2256 and slope is 7756.
 
 #b) 
 model = smf.ols('price~carat', data=df)
 results_smf = model.fit()
 print(results_smf.summary())
 
-
+#With smf, the intercept is -2256.3686 and the slope is 7756.4256
 
 
 #c)
