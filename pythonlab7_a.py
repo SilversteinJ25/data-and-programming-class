@@ -58,25 +58,26 @@ print(results_smf.summary())
 #c)
 y = df['price']
 df['const'] = np.ones(len(x))
+x= df[['const','carat']]
 
-x= df[['const','carat']
+model = sm.OLS(endog=y, exog=x)
+result=model.fit()
+result.summary()
 
-
-
-
+#The coef estimate is 7756.4256, the intercept is -2256.3606
 
 #d)
+y = df['price']
+x = df[['carat']]
+y.shape
+x.shape
 
+model = LinearRegression(fit_intercept=True)
+results_sk1 = model.fit(x,y)
+print(results_sk1.intercept_)
+print(results_sk1.coef_)
 
-
-
-
-
-
-
-
-
-
+#The intercept  is -2256.36 and the coef is 7756.43
 
 
 # 3) Run a regression of price (y) on carat, the natual logarithm of depth  
@@ -84,23 +85,21 @@ x= df[['const','carat']
 #    table**2 as regressors).  Estimate the model parameters using any Python
 #    method you choose, and display the estimates.  
 
+model = smf.ols('price~carat + C(cut) + C(color) +C(clarity)+ np.log(depth) + table + np.power(table, 2)', data=df)
+results = model.fit()
+print(results.summary())
 
-
-
-
-
-
+#The coef estimate is 617.2723 and the intercept is -1071.9974
 
 
 # 4) Run a regression of price (y) on carat and cut.  Estimate the model 
 #    parameters using any Python method you choose, and display the estimates.  
 
+model = smf.ols('price~carat + C(cut)', data=df)
+results = model.fit()
+print(results.summary())
 
-
-
-
-
-
+#The intercept is -3875.47 and the slope is 1120.33
 
 
 
@@ -112,14 +111,12 @@ x= df[['const','carat']
 #    only the R-squared from each model.  We'll see who can come up with the 
 #    best fit by the end of lab. 
 
-model - smf.ols('price~carat + C(cut) + C(color) +C(clarity)+ np.log(depth)')
+model = smf.ols('price~carat + C(cut) + C(color) +C(clarity)+ np.log(depth)', data=df)
 
+results = model.fit()
+print(results.rsquared)
 
-
-
-
-
-
+#I got an rsquared of 0.916
 
 
 
