@@ -24,7 +24,7 @@ import requests
 from bs4 import BeautifulSoup
 
 url = 'https://en.wikipedia.org/wiki/List_of_best-selling_music_artists'
-path = r'/users/justinesilverstein/Desktop/data-and-programming-class/' 
+path = r'/users/justinesilverstein/Desktop/data-and-programming-class/lab8_b.csv' 
 
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')
